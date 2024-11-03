@@ -1,0 +1,30 @@
+#importar la biblioteca random de Python
+
+# Definir los autos participantes
+autos = ["Auto 1", "Auto 2", "Auto 3", "Auto 4"]
+
+# Inicializar las distancias recorridas por cada auto
+distancias = {auto: 0 for auto in autos}
+
+# Simular la carrera de 10 segundos
+for segundo in range(1, 11):
+    print(f"Segundo {segundo}:")
+    for auto in autos:
+        # Asignar una velocidad aleatoria entre 1 y 10 a cada auto
+        velocidad = random.randint(1, 10)
+        distancias[auto] += velocidad
+        print(f"{auto} avanza {velocidad} unidades. Distancia total: {distancias[auto]}")
+    print("\n")
+
+# Determinar la distancia máxima alcanzada
+max_distancia = max(distancias.values())
+
+# Encontrar los autos ganadores
+ganadores = [auto for auto, distancia in distancias.items() if distancia == max_distancia]
+
+# Imprimir el resultado de la carrera
+print("Resultado de la carrera:")
+if len(ganadores) > 1:
+    print("Empate entre:", ", ".join(ganadores))
+else:
+    print("El auto ganador es:", ganadores[0])
