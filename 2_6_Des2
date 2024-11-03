@@ -1,0 +1,25 @@
+# Pedir al usuario todas las calificaciones separadas por comas
+calificaciones = input("Ingrese las calificaciones separadas por comas: ").split(',')
+
+# Convertir las calificaciones a una lista de números
+calificaciones = [float(cal) for cal in calificaciones]
+
+# Inicializar contadores de aprobados y desaprobados
+aprobados = 0
+desaprobados = 0
+
+# Usar un bucle para determinar si cada calificación es aprobatoria o no
+for calificacion in calificaciones:
+    if calificacion >= 7:
+        aprobados += 1
+    else:
+        desaprobados += 1
+
+# Calcular el promedio
+promedio = sum(calificaciones) / len(calificaciones)
+
+# Imprimir los resultados
+print("\nResultados:")
+print(f"Cantidad de calificaciones aprobatorias: {aprobados}")
+print(f"Cantidad de calificaciones desaprobatorias: {desaprobados}")
+print(f"Promedio de las calificaciones: {promedio:}")
